@@ -1,8 +1,12 @@
 var timerEl = document.getElementById('countdown');
+var timeLeft = 5;
+var timeInterval;
+var startBtn = document.getElementById('startBtn');
+var menu = document.getElementById('menu');
+var quiz = document.getElementById('quiz')
 
 function countdown() {
-    var timeLeft = 5;
-    var timeInterval = setInterval(function () {
+    timeInterval = setInterval(function () {
       if (timeLeft > 1) {
         timerEl.textContent = ' Time Remaining:' + ' ' + timeLeft;
         timeLeft--;
@@ -12,4 +16,11 @@ function countdown() {
       }
     }, 1000);
 }
-  countdown();
+
+  startBtn.addEventListener('click', function(){
+    countdown();
+    quiz.classList.remove('hide');
+    menu.classList.add('hide');
+  });
+
+
