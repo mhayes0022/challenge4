@@ -1,6 +1,6 @@
 body {
-  /*font-family: sans-serif;
-  background-color: #f9fbfd;*/
+  /*font-family: sans-serif;*/
+  background-color: #f9fbfd;
 }
 
 .menu {
@@ -24,11 +24,40 @@ header {
 }
 
 #countdown {
-    /*float: right;
-    display: block;*/
+  border: solid;
+    float: right;
+    /*display: block;*/
 }
 
 .hide {
     display: none;
+}
+
+#answers{
+  background-color: red;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+ 
+ 
+}
+
+#A {
+  text-align: center;
+  font-size: 15px;
+ 
+}
+#B {
+  text-align: center;
+  font-size: 15px;
+}
+#C {
+  text-align: center;
+ 
+}
+#D {
+  text-align: center;
+ 
 }
 
