@@ -1,17 +1,18 @@
-var timerEl = document.getElementById('countdown');
-var timeLeft = 30;
-var timeInterval;
-var startBtn = document.getElementById('startBtn');
-var menu = document.getElementById('menu');
-var quiz = document.getElementById('quiz');
-var questions = document.querySelector('questions');
-var index = 0;
-var answersBtns = document.getElementById('answerBtns');
+let timerEl = document.getElementById('countdown');
+let timeLeft = 30;
+let timeInterval;
+let startBtn = document.getElementById('startBtn');
+let menu = document.getElementById('menu');
+let quiz = document.getElementById('quiz');
+let questions = document.querySelector('questions');
+let index = 0;
+let answersBtns = document.getElementById('answerBtns');
 const A = document.getElementById('answerA');
 const B = document.getElementById('answerB');
 const C = document.getElementById('answerC');
 const D = document.getElementById('answerD');
-var gameEnd = document.getElementById('gameEnd');
+let gameEnd = document.getElementById('gameEnd');
+let playerTime = document.getElementById('playerTime');
 let allRandomQuestions;
 
 
@@ -103,7 +104,7 @@ const quizQuestions = [
   
   
 
-//Below is the timer 
+//Below is the timer function 
 function countdown() {
   timeInterval = setInterval(function () {
     if (timeLeft > 0) {
@@ -150,9 +151,10 @@ function askQuestion() {
   if (index >= quizQuestions.length) {
   quiz.classList.add('hide');
   gameEnd.classList.remove('hide');
-   clearInterval(timeInterval);
+  clearInterval(timeInterval);
+  playerTime.textContent = 'Final Time:' + ' ' + timeLeft + ' ' + 'seconds!';
    return
-  }
+  };
 
   document.getElementById('questions').innerHTML = currentQuestion.question;
   document.getElementById('answerA').innerHTML = currentQuestion.A;
@@ -217,5 +219,3 @@ D.addEventListener('click', function(){
   
 
 
-
-//let playerTime = document.getElementById('player-time')
