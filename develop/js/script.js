@@ -11,7 +11,7 @@ const A = document.getElementById('answerA');
 const B = document.getElementById('answerB');
 const C = document.getElementById('answerC');
 const D = document.getElementById('answerD');
-let gameEnd = document.getElementById('gameEnd');
+let scoreSubmission = document.getElementById('scoreSubmission');
 let playerTime = document.getElementById('playerTime');
 let allRandomQuestions;
 
@@ -37,69 +37,69 @@ const quizQuestions = [
     correct: 'An object with a then method',
   },
   {
-    question: 'The correct anwers is D',
-    A: 'This is the first option',
-    B: 'This is the second option',
-    C: 'This is the third option',
-    D: 'This is the fourth option',
-    correct: 'This is the fourth option',
+    question: 'To style an element directly in the HTML file, what is used?',
+    A: 'CSS',
+    B: 'CSS Box Model',
+    C: 'Internal CSS',
+    D: 'Inline CSS',
+    correct: 'Inline CSS',
   },
-  // {
-  //   question: 'This is a question',
-  //   A: 'This is the first option',
-  //   B: 'This is the second option',
-  //   C: 'This is the third option',
-  //   D: 'This is the fourth option',
-  //   correct: '',
-  // },
-  // {
-  //   question: 'This is a question',
-  //   A: 'This is the first option',
-  //   B: 'This is the second option',
-  //   C: 'This is the third option',
-  //   D: 'This is the fourth option',
-  //   correct: '',
-  // },
-  // {
-  //   question: 'This is a question',
-  //   A: 'This is the first option',
-  //   B: 'This is the second option',
-  //   C: 'This is the third option',
-  //   D: 'This is the fourth option',
-  //   correct: '',
-  // },
-  // {
-  //   question: 'This is a question',
-  //   A: 'This is the first option',
-  //   B: 'This is the second option',
-  //   C: 'This is the third option',
-  //   D: 'This is the fourth option',
-  //   correct: '',
-  // },
-  // {
-  //   question: 'This is a question',
-  //   A: 'This is the first option',
-  //   B: 'This is the second option',
-  //   C: 'This is the third option',
-  //   D: 'This is the fourth option',
-  //   correct: '',
-  // },
-  // {
-    //   question: 'This is a question',
-    //   A: 'This is the first option',
-    //   B: 'This is the second option',
-    //   C: 'This is the third option',
-    //   D: 'This is the fourth option',
-    //   correct: '',
-  // },
-  // {
-    //   question: 'This is a question',
-    //   A: 'This is the first option',
-    //   B: 'This is the second option',
-    //   C: 'This is the third option',
-    //   D: 'This is the fourth option',
-    //   correct: '',
-    // },
+  {
+    question: 'Which Git command stages your changes?',
+    A: 'git checkout -b',
+    B: 'git add -A',
+    C: 'git add -a',
+    D: 'git pull origin main',
+    correct: 'git add -A',
+  },
+  {
+    question: 'In CSS, the margin indicates:',
+    A: 'How much space we want around the inside of an element',
+    B: 'How much space we want around the outside of an element',
+    C: 'How much space we want to the top and bottom of an element',
+    D: 'How much space we want to the outside of the right and left of an element',
+    correct: 'How much space we want around the outside of an element',
+  },
+  {
+    question: 'What is the selector for an id attribute in a CSS stylesheet?',
+    A: '#',
+    B: '.idName',
+    C: '.className',
+    D: 'idAttribute',
+    correct: '#',
+  },
+  {
+    question: 'Which of the following is NOT a valid kind of type?',
+    A: 'String',
+    B: 'Boolean',
+    C: 'Undefined',
+    D: 'Element',
+    correct: 'Element',
+  },
+  {
+    question: 'What is an array?',
+    A: 'Multiple values stored in a single element',
+    B: 'A value stored within a variable',
+    C: 'Multiple values stored in a single variable',
+    D: 'A value stored across multiple variables',
+    correct: 'Multiple values stored in a single variable',
+  },
+  {
+      question: 'What is a function?',
+      A: 'A reusable block of code that performs a specific task',
+      B: 'A reusable block of code that does nothing',
+      C: 'A one-use-only block of code that performs a specific task',
+      D: 'A reusable block of code',
+      correct: 'A reusable block of code that performs a specific task',
+  },
+  {
+      question: 'A variable must be declared in which type of scope for it to be available to all functions?',
+      A: 'Universal scope',
+      B: 'Local scope',
+      C: 'Global scope',
+      D: 'Open scope',
+      correct: 'Global scope',
+    },
   ]
   
   
@@ -150,7 +150,7 @@ function askQuestion() {
   let currentQuestion = allRandomQuestions[index];
   if (index >= quizQuestions.length) {
   quiz.classList.add('hide');
-  gameEnd.classList.remove('hide');
+  scoreSubmission.classList.remove('hide');
   clearInterval(timeInterval);
   playerTime.textContent = 'Final Time:' + ' ' + timeLeft + ' ' + 'seconds!';
    return
@@ -217,5 +217,10 @@ D.addEventListener('click', function(){
 
   
   
-
-
+//Still needs:
+//subtract more than 1 second off if incorrect answer
+//'high scores' button
+//'submit' button needs to take you to high score screen
+//contingency for if timer runs out
+//incorrect answers take time off your score time, but not the timer
+//set timer to 60 seconds to start

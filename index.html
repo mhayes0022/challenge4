@@ -34,21 +34,33 @@
     </section>
 
 <!--Below is the end game section and high score section-->
-    <section id="gameEnd" class="hide">
-      <h2 id="playerTime"></h2>
-       <p> 
-        Your initials: 
-        <input type="text"
-               id="initials"
-               max="3" />
-        <button id="submit-score">
-            Submit
-        </button>
-        </p>
-    </section>
+    
+<section id="scoreSubmission" class="hide">
+  <h2 id="playerTime"></h2>
+  <form>
+    <div>
+      <p> Your Initials:</p>
+      <input id="submitInitials" type="text" max="3">
+      <button id="submitScoreBtn" type="submit">Submit</button>
+    </div>
+  </form>
+</section>
 
     <script src="./develop/js/script.js"></script>
   </body>
 </html>
 
 
+
+<!-- <section id="scoreSubmission" class="hide">
+  <h2 id="playerTime"></h2>
+   <p> 
+    Your initials: 
+    <input type="text"
+           id="initials"
+           max="3" />
+    <button id="submit-score">
+        Submit
+    </button>
+    </p>
+</section> -->
