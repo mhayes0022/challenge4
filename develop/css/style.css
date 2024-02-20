@@ -1,6 +1,10 @@
 body {
   /*font-family: sans-serif;*/
   background-color: #f9fbfd;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: auto;
 }
 
 .menu {
@@ -33,31 +37,60 @@ header {
     display: none;
 }
 
-#answers{
-  background-color: red;
-  justify-content: center;
-  align-items: center;
+.flex {
+  display: flex;
+}
+
+ /*#answerBtns {
   display: flex;
   flex-direction: column;
+  
+  justify-content: center;
+  flex: wrap; 
+}*/
+
+#quizSection {
+  background-color:aquamarine;
+  height: 680px;
+  width: 100%;
  
- 
+  justify-content: center;
+  /* justify-content: center; */
 }
 
-#A {
+#questions {
+  font-family:'Times New Roman', 'Times', 'serif';
   text-align: center;
-  font-size: 15px;
- 
-}
-#B {
-  text-align: center;
-  font-size: 15px;
-}
-#C {
-  text-align: center;
- 
-}
-#D {
-  text-align: center;
- 
+  padding-top: 100px;
+  color: blueviolet;
+  position: relative;
+  /* justify-content: center; */
+  /* padding-top: 50px; */
 }
 
+#answerBtns {
+  justify-content: center;
+  position: absolute;
+  /* margin-right: 50px; This didn't NOT work*/
+}
+
+#answerA,
+#answerB,
+#answerC,
+#answerD{
+  text-align: center;
+  padding:5px;
+  position: relative;
+  
+  /* justify-content: center; */
+  /* margin-top: 100px;
+  position: relative; */
+  
+}
+
+
+
+
+/* Going to need a media query to adjust margins at smaller screen size */
+/* Or am I? */
+/* z axis for the timer element, so it floats above everythng */

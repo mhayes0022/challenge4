@@ -21,8 +21,8 @@
     <div id = "countdown" class = "hide"></div>
 
 <!--Below is the quiz-->
-    <section>
-      <div id = "quiz" class ="hide">
+    <section id="quizSection" class="hide">
+      <div id = "quiz" class ="">
         <h2 id="questions"></h2>
         <div class="answerBtns" id="answerBtns">
           <button id="answerA" class="answers"></button>
@@ -34,7 +34,8 @@
     </section>
 
 <!--Below is the end game section and high score section-->
-    
+<button id="highScoresBtn">High Scores</button>  
+
 <section id="scoreSubmission" class="hide">
   <h2 id="playerTime"></h2>
   <form>
@@ -44,6 +45,16 @@
       <button id="submitScoreBtn" type="submit">Submit</button>
     </div>
   </form>
+</section>
+
+<section id="highScoreSection" class="hide">
+  <div class="emptyDiv">
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+  </div>
 </section>
 
     <script src="./develop/js/script.js"></script>

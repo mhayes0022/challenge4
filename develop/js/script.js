@@ -4,6 +4,7 @@ let timeInterval;
 let startBtn = document.getElementById('startBtn');
 let menu = document.getElementById('menu');
 let quiz = document.getElementById('quiz');
+let quizSection = document.getElementById('quizSection')
 let questions = document.querySelector('questions');
 let index = 0;
 let answersBtns = document.getElementById('answerBtns');
@@ -36,71 +37,71 @@ const quizQuestions = [
     D:  'An object with an if method',
     correct: 'An object with a then method',
   },
-  {
-    question: 'To style an element directly in the HTML file, what is used?',
-    A: 'CSS',
-    B: 'CSS Box Model',
-    C: 'Internal CSS',
-    D: 'Inline CSS',
-    correct: 'Inline CSS',
-  },
-  {
-    question: 'Which Git command stages your changes?',
-    A: 'git checkout -b',
-    B: 'git add -A',
-    C: 'git add -a',
-    D: 'git pull origin main',
-    correct: 'git add -A',
-  },
-  {
-    question: 'In CSS, the margin indicates:',
-    A: 'How much space we want around the inside of an element',
-    B: 'How much space we want around the outside of an element',
-    C: 'How much space we want to the top and bottom of an element',
-    D: 'How much space we want to the outside of the right and left of an element',
-    correct: 'How much space we want around the outside of an element',
-  },
-  {
-    question: 'What is the selector for an id attribute in a CSS stylesheet?',
-    A: '#',
-    B: '.idName',
-    C: '.className',
-    D: 'idAttribute',
-    correct: '#',
-  },
-  {
-    question: 'Which of the following is NOT a valid kind of type?',
-    A: 'String',
-    B: 'Boolean',
-    C: 'Undefined',
-    D: 'Element',
-    correct: 'Element',
-  },
-  {
-    question: 'What is an array?',
-    A: 'Multiple values stored in a single element',
-    B: 'A value stored within a variable',
-    C: 'Multiple values stored in a single variable',
-    D: 'A value stored across multiple variables',
-    correct: 'Multiple values stored in a single variable',
-  },
-  {
-      question: 'What is a function?',
-      A: 'A reusable block of code that performs a specific task',
-      B: 'A reusable block of code that does nothing',
-      C: 'A one-use-only block of code that performs a specific task',
-      D: 'A reusable block of code',
-      correct: 'A reusable block of code that performs a specific task',
-  },
-  {
-      question: 'A variable must be declared in which type of scope for it to be available to all functions?',
-      A: 'Universal scope',
-      B: 'Local scope',
-      C: 'Global scope',
-      D: 'Open scope',
-      correct: 'Global scope',
-    },
-  ]
+  // {
+  //   question: 'To style an element directly in the HTML file, what is used?',
+  //   A: 'CSS',
+  //   B: 'CSS Box Model',
+  //   C: 'Internal CSS',
+  //   D: 'Inline CSS',
+  //   correct: 'Inline CSS',
+  // },
+  // {
+  //   question: 'Which Git command stages your changes?',
+  //   A: 'git checkout -b',
+  //   B: 'git add -A',
+  //   C: 'git add -a',
+  //   D: 'git pull origin main',
+  //   correct: 'git add -A',
+  // },
+  // {
+  //   question: 'In CSS, the margin indicates:',
+  //   A: 'How much space we want around the inside of an element',
+  //   B: 'How much space we want around the outside of an element',
+  //   C: 'How much space we want to the top and bottom of an element',
+  //   D: 'How much space we want to the outside of the right and left of an element',
+  //   correct: 'How much space we want around the outside of an element',
+  // },
+  // {
+  //   question: 'What is the selector for an id attribute in a CSS stylesheet?',
+  //   A: '#',
+  //   B: '.idName',
+  //   C: '.className',
+  //   D: 'idAttribute',
+  //   correct: '#',
+  // },
+  // {
+  //   question: 'Which of the following is NOT a valid kind of type?',
+  //   A: 'String',
+  //   B: 'Boolean',
+  //   C: 'Undefined',
+  //   D: 'Element',
+  //   correct: 'Element',
+  // },
+  // {
+  //   question: 'What is an array?',
+  //   A: 'Multiple values stored in a single element',
+  //   B: 'A value stored within a variable',
+  //   C: 'Multiple values stored in a single variable',
+  //   D: 'A value stored across multiple variables',
+  //   correct: 'Multiple values stored in a single variable',
+  // },
+  // {
+  //     question: 'What is a function?',
+  //     A: 'A reusable block of code that performs a specific task',
+  //     B: 'A reusable block of code that does nothing',
+  //     C: 'A one-use-only block of code that performs a specific task',
+  //     D: 'A reusable block of code',
+  //     correct: 'A reusable block of code that performs a specific task',
+  // },
+  // {
+  //     question: 'A variable must be declared in which type of scope for it to be available to all functions?',
+  //     A: 'Universal scope',
+  //     B: 'Local scope',
+  //     C: 'Global scope',
+  //     D: 'Open scope',
+  //     correct: 'Global scope',
+  //   },
+  ];
   
   
 
@@ -122,9 +123,10 @@ function countdown() {
 startBtn.addEventListener('click', function(){
   countdown();
   allRandomQuestions = shuffleQuestions(quizQuestions);
-  quiz.classList.remove('hide');
+  quizSection.classList.remove('hide');
   menu.classList.add('hide');
   timerEl.classList.remove('hide');
+  quizSection.classList.add('flex');
   askQuestion();
 });
   
@@ -149,7 +151,8 @@ function askQuestion() {
   //let currentQuestion = allRandomQuestions[0];
   let currentQuestion = allRandomQuestions[index];
   if (index >= quizQuestions.length) {
-  quiz.classList.add('hide');
+  quizSection.classList.add('hide');
+  quizSection.classList.remove('flex');
   scoreSubmission.classList.remove('hide');
   clearInterval(timeInterval);
   playerTime.textContent = 'Final Time:' + ' ' + timeLeft + ' ' + 'seconds!';
@@ -214,13 +217,26 @@ D.addEventListener('click', function(){
 });
 
 
+//Below is the high score section
+let highScoreSection = document.getElementById('highScoreSection');
+let highScoresBtn = document.getElementById('highScoresBtn');
 
-  
+highScoresBtn.addEventListener('click', function(){
+  quizSection.classList.remove('flex');
+  highScoreSection.classList.remove('hide');
+  scoreSubmission.classList.add('hide');
+  quizSection.classList.add('hide');
+  menu.classList.add('hide');
+  clearInterval(timeInterval);
+});
+
+
+
   
 //Still needs:
 //subtract more than 1 second off if incorrect answer
-//'high scores' button
 //'submit' button needs to take you to high score screen
 //contingency for if timer runs out
 //incorrect answers take time off your score time, but not the timer
 //set timer to 60 seconds to start
+//what if menu is present when high score button is clicked
