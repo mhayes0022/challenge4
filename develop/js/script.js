@@ -1,5 +1,5 @@
 let timerEl = document.getElementById('countdown');
-let timeLeft = 30;
+let timeLeft = 1;
 let timeInterval;
 let startBtn = document.getElementById('startBtn');
 let menu = document.getElementById('menu');
@@ -114,6 +114,8 @@ function countdown() {
     } else {
       timerEl.textContent = 'GAME OVER';
       clearInterval(timeInterval);
+      youDied();
+
     }
   }, 1000);
 }
@@ -228,21 +230,32 @@ let submitScoreBtn = document.getElementById('submitScoreBtn');
 let scores;
 let finalTime;
 
-
+//highScoresBtn.addEventListener('click', );
+//highScoresBtn.addEventListener('click', ev => { ev.currentTarget.textContent}, { once: true });
 //Below enables 'high score' button functionality
 highScoresBtn.addEventListener('click', function(){
+  document.getElementById("highScoresBtn").disabled = true;
   quizSection.classList.remove('flex');
   quizSection.classList.add('hide');
   menu.classList.add('hide');
   scoreSubmission.classList.add('hide');
+  timerEl.classList.add('hide');
   highScoreSection.classList.remove('hide');
   restartBtn.classList.remove('hide');
   clearInterval(timeInterval);
   moveScores();
 });
 
+
+
+//Below is the restart quiz button
 restartBtn.addEventListener('click', function(){
   highScoreSection.classList.add('hide');
+  menu.classList.remove('hide');
+  restartBtn.classList.add('hide');
+  document.getElementById("highScoresBtn").disabled = false;
+  //remove highscore display instead of stopping moveScores function
+  //removeScores();
 });
 
 
@@ -258,10 +271,15 @@ const moveScores = () => {
   });
 };
 
+const removeScores = () => {
+  scoresList = document.getElementById('scoresList');
+  scoresList.remove();
+}
+
 //Below enables functionality of 'submit' score button
 submitScoreBtn.addEventListener('submit', (event) => {
   event.preventDefault();
-    if (submittedScore === "" || submittedScore.value === null) {
+    if (submittedScore.value == "" || submittedScore.value == null) {
       alert("You have not entered your initials");
       return;
     }
@@ -280,6 +298,16 @@ submitScoreBtn.addEventListener('submit', (event) => {
     restartBtn.classList.remove('hide');
   });
 
+  function youDied() {
+    quizSection.classList.remove('flex');
+    quizSection.classList.add('hide');
+    highScoresBtn.classList.add('hide');
+    restartBtn.classList.remove('hide');
+    dead.classList.remove('hide');
+
+  };
+
+
 
   // submitScoreBtn.addEventListener('click',function(){
   //   highScoreSection.classList.remove('hide');
@@ -287,10 +315,6 @@ submitScoreBtn.addEventListener('submit', (event) => {
   //   menu.classList.add('hide');
   // })  
   
-  // const userScore = {
-  //   initials: submittedScore.value, 
-  //   score: timeLeft
-  // }
 
   // moveScores(highScoreInitials.value);
   // highScoreInitials.value = '';

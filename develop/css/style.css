@@ -29,13 +29,40 @@ header {
 
 #countdown {
   border: solid;
-    float: right;
+    
+    right: 0;
+    position: absolute;
     /*display: block;*/
+    z-index: 1;
+}
+
+#restartBtn{
+  position: absolute;
+  z-index: 2;
 }
 
 .hide {
     display: none;
 }
+
+#dead{
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  top: 0;
+}
+#deadText{
+  margin: 0;
+  padding-top: 350px;
+  color: red;
+  font-family: 'Cormorant Garamond';
+  font-size: 100px;
+}
+
 
 .flex {
   display: flex;
@@ -93,4 +120,3 @@ header {
 
 /* Going to need a media query to adjust margins at smaller screen size */
 /* Or am I? */
-/* z axis for the timer element, so it floats above everythng */
