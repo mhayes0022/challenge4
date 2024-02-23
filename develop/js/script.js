@@ -13,6 +13,7 @@ const B = document.getElementById('answerB');
 const C = document.getElementById('answerC');
 const D = document.getElementById('answerD');
 let playerTime = document.getElementById('playerTime');
+let restartBtn = document.getElementById('restartBtn');
 let allRandomQuestions;
 
 
@@ -219,52 +220,89 @@ D.addEventListener('click', function(){
 //Below is the high score section
 let highScoreSection = document.getElementById('highScoreSection');
 let highScoresBtn = document.getElementById('highScoresBtn');
-
-highScoresBtn.addEventListener('click', function(){
-  quizSection.classList.remove('flex');
-  quizSection.classList.add('hide');
-  menu.classList.add('hide');
-  scoreSubmission.classList.add('hide');
-  highScoreSection.classList.remove('hide');
-  clearInterval(timeInterval);
-});
-
+let submittedScore = document.getElementById('highScoreInitials');
+let highscoresContainer =  document.getElementById('scoresList')
 let scoreSubmission = document.getElementById('scoreSubmission');
 let highScoreInitials = document.getElementById('highScoreInitials');
 let submitScoreBtn = document.getElementById('submitScoreBtn');
 let scores;
 let finalTime;
 
-let saveHighScores = localStorage.getItem("highScoreSection")
-  ? JSON.parse(localStorage.getItem("highScoreSection"))
-  : [];
+
+//Below enables 'high score' button functionality
+highScoresBtn.addEventListener('click', function(){
+  quizSection.classList.remove('flex');
+  quizSection.classList.add('hide');
+  menu.classList.add('hide');
+  scoreSubmission.classList.add('hide');
+  highScoreSection.classList.remove('hide');
+  restartBtn.classList.remove('hide');
+  clearInterval(timeInterval);
+  moveScores();
+});
+
+restartBtn.addEventListener('click', function(){
+  highScoreSection.classList.add('hide');
+});
 
 
-  const moveScores = (text) => {
+//Below handles retrieving the high scores
+let saveHighScores = JSON.parse(localStorage.getItem("highScoreSection")) || [];
+
+const moveScores = () => {
+  saveHighScores.forEach((item) => {
     const initials = document.createElement("li");
-    initials.innerHTML = text + '- ' + timeLeft;
-    highScoreSection.appendChild(initials);
-  };
+    initials.innerHTML = item.initials + '- ' + item.score;
+    highscoresContainer.appendChild(initials);
+    
+  });
+};
 
-  submitScoreBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    saveHighScores.push(highScoreInitials.value);
-    localStorage.setItem("highScoreSection", JSON.stringify(saveHighScores));
-    moveScores(highScoreInitials.value);
-    highScoreInitials.value = "";
-    finalTime = timeLeft;
+//Below enables functionality of 'submit' score button
+submitScoreBtn.addEventListener('submit', (event) => {
+  event.preventDefault();
+    if (submittedScore === "" || submittedScore.value === null) {
+      alert("You have not entered your initials");
+      return;
+    }
+    const userScore = {
+      initials : submittedScore.value, 
+      score : timeLeft,
+    }
+    
+    saveHighScores.push(userScore);
+    
+    localStorage.setItem('highScoreSection', JSON.stringify(saveHighScores));
+    moveScores()
+    highScoreSection.classList.remove('hide');
+    scoreSubmission.classList.add('hide');
+    menu.classList.add('hide');
+    restartBtn.classList.remove('hide');
   });
 
 
+  // submitScoreBtn.addEventListener('click',function(){
+  //   highScoreSection.classList.remove('hide');
+  //   scoreSubmission.classList.add('hide');
+  //   menu.classList.add('hide');
+  // })  
+  
+  // const userScore = {
+  //   initials: submittedScore.value, 
+  //   score: timeLeft
+  // }
+
+  // moveScores(highScoreInitials.value);
+  // highScoreInitials.value = '';
+  // finalTime = timeLeft;
+// const getScores = JSON.parse(localStorage.getItem("highScoreSection"))
+// getScores.forEach((initials) => {
+//   moveScores(initials);
+// });
+
+// const getScores = JSON.parse(localStorage.getItem('highScoreSection'));
 
 
-submitScoreBtn.addEventListener('click',function(){
-  // saveHighScores();
-  // displayScores();
-  highScoreSection.classList.remove('hide');
-  scoreSubmission.classList.add('hide');
-  menu.classList.add('hide');
-})  
 
 
 //Still needs:
@@ -272,27 +310,7 @@ submitScoreBtn.addEventListener('click',function(){
 //contingency for if timer runs out
 //incorrect answers take time off your score time, but not the timer
 //set timer to 60 seconds to start
-//save high scores permanently 
 //needs 'restart quiz' button
+//highscorebutton brings results repeatedly, multiples
 
 
-// function saveHighScores() {
-//   if(scores.length < 5) {
-//     scores.push(highScoreInitials.value);
-//   } else {
-//     scores.shift(0);
-//       scores.push(highScoreInitials.value);
-//   }
-//   localStorage.setItem('highScoreSection', JSON.stringify(scores));
-// }
-
-// function displayScores() {
-//   let highScores = document.querySelector("highScoreSection");
-//   for(i = 0; i < scoresArray.length; i++) {
-//       highScores.children[i].textContent = scoresArray[i];
-//       highScores.children[i].addEventListener('click', function() {
-//           console.log(this.innerHTML);
-//           highScoreInitials.value = this.innerHTML;
-//       })
-//   }
-// }

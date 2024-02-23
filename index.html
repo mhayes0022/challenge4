@@ -38,20 +38,24 @@
 
 <section id="scoreSubmission" class="hide">
   <h2 id="playerTime"></h2>
-  <form>
+  <form id="submitScoreBtn">
     <div>
       <p> Your Initials:</p>
-      <input id="highScoreInitials" type="text" max="3">
-      <button id="submitScoreBtn" type="button">Submit</button>
+      <input id="highScoreInitials" type="text" max="3"/>
+      <button  type="submit">Submit</button>
     </div>
   </form>
 </section>
 
-<div id="highScoreSection" class="hide">
-    <ul>
+  <div id="highScoreSection" class="hide">
+    <ol id="scoresList">
       
-    </ul>
-</div>
+    </ol>
+  </div>
+  
+  <div>
+    <button id="restartBtn" class="hide">Restart Quiz!</button>
+  </div>
 
     <script src="./develop/js/script.js"></script>
   </body>
