@@ -8,8 +8,8 @@ body {
 }
 
 .menu {
-width: 100%;
-background-color: white;
+  width: 100%;
+  background-color: white;
 }
 
 header {
@@ -17,6 +17,10 @@ header {
   color: red;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 50px;
+}
+
+.hide {
+    display: none;
 }
 
 #startBtn {
@@ -28,21 +32,18 @@ header {
 }
 
 #countdown {
-  border: solid;
-    
-    right: 0;
-    position: absolute;
-    /*display: block;*/
-    z-index: 1;
+  border: solid; 
+  right: 0;
+  position: absolute;
+  /*display: block;*/
+  z-index: 1;
 }
 
 #restartBtn{
   position: absolute;
+  margin-top: 20px;
+  margin-left: 20px;
   z-index: 2;
-}
-
-.hide {
-    display: none;
 }
 
 #dead{
@@ -57,7 +58,7 @@ header {
 }
 #deadText{
   margin: 0;
-  padding-top: 350px;
+  padding-top: 310px;
   color: red;
   font-family: 'Cormorant Garamond';
   font-size: 100px;
@@ -68,13 +69,6 @@ header {
   display: flex;
 }
 
- /*#answerBtns {
-  display: flex;
-  flex-direction: column;
-  
-  justify-content: center;
-  flex: wrap; 
-}*/
 
 #quizSection {
   background-color:aquamarine;
@@ -115,7 +109,19 @@ header {
   
 }
 
+#highScoresBtn {
+  left: 0;
+  top: 0;
+  margin-top: 10px;
+  margin-left: 10px;
+  position: absolute;
+  /*display: block;*/
+  z-index: 1;
+}
 
+#scoreSubmission {
+  justify-content: center;
+}
 
 
 /* Going to need a media query to adjust margins at smaller screen size */

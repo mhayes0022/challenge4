@@ -1,5 +1,5 @@
 let timerEl = document.getElementById('countdown');
-let timeLeft = 1;
+let timeLeft = 3;
 let timeInterval;
 let startBtn = document.getElementById('startBtn');
 let menu = document.getElementById('menu');
@@ -253,9 +253,7 @@ restartBtn.addEventListener('click', function(){
   highScoreSection.classList.add('hide');
   menu.classList.remove('hide');
   restartBtn.classList.add('hide');
-  document.getElementById("highScoresBtn").disabled = false;
-  //remove highscore display instead of stopping moveScores function
-  //removeScores();
+  location.reload(); 
 });
 
 
@@ -270,11 +268,6 @@ const moveScores = () => {
     
   });
 };
-
-const removeScores = () => {
-  scoresList = document.getElementById('scoresList');
-  scoresList.remove();
-}
 
 //Below enables functionality of 'submit' score button
 submitScoreBtn.addEventListener('submit', (event) => {
@@ -309,32 +302,14 @@ submitScoreBtn.addEventListener('submit', (event) => {
 
 
 
-  // submitScoreBtn.addEventListener('click',function(){
-  //   highScoreSection.classList.remove('hide');
-  //   scoreSubmission.classList.add('hide');
-  //   menu.classList.add('hide');
-  // })  
-  
-
-  // moveScores(highScoreInitials.value);
-  // highScoreInitials.value = '';
-  // finalTime = timeLeft;
-// const getScores = JSON.parse(localStorage.getItem("highScoreSection"))
-// getScores.forEach((initials) => {
-//   moveScores(initials);
-// });
-
-// const getScores = JSON.parse(localStorage.getItem('highScoreSection'));
-
-
-
 
 //Still needs:
 //subtract more than 1 second off if incorrect answer
-//contingency for if timer runs out
 //incorrect answers take time off your score time, but not the timer
 //set timer to 60 seconds to start
-//needs 'restart quiz' button
-//highscorebutton brings results repeatedly, multiples
+//style score submission and high scores sections
+//get quiz to not move based on question length
+//above. It's set to justify center, but counts the beginning
+//of the question as the center.
 
 
