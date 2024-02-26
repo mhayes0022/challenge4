@@ -15,6 +15,7 @@ const D = document.getElementById('answerD');
 let playerTime = document.getElementById('playerTime');
 let restartBtn = document.getElementById('restartBtn');
 let allRandomQuestions;
+let scoreSubmission = document.getElementById('scoreSubmission');
 
 
 
@@ -110,7 +111,7 @@ function countdown() {
   timeInterval = setInterval(function () {
     if (timeLeft > 0) {
       timerEl.textContent = ' Time Remaining:' + ' ' + timeLeft;
-      timeLeft--;
+      --timeLeft;
     } else {
       timerEl.textContent = 'GAME OVER';
       clearInterval(timeInterval);
@@ -150,12 +151,13 @@ function shuffleQuestions(array) {
 //This function asks the questions
 function askQuestion() {
   
-  //let currentQuestion = allRandomQuestions[0];
   let currentQuestion = allRandomQuestions[index];
   if (index >= quizQuestions.length) {
     quizSection.classList.add('hide');
     quizSection.classList.remove('flex');
     scoreSubmission.classList.remove('hide');
+    //scoreSubmission.classList.add('flex');
+    timerEl.classList.add('hide');
     clearInterval(timeInterval);
     playerTime.textContent = 'Final Time:' + ' ' + timeLeft + ' ' + 'seconds!';
     return
@@ -176,7 +178,7 @@ A.addEventListener('click', function(){
     askQuestion();
   }
   else {
-    timeLeft--;
+    timeLeft-=5;
     index++;
     askQuestion();
   }
@@ -188,7 +190,7 @@ B.addEventListener('click', function(){
     askQuestion()
   }
   else {
-    timeLeft--;
+    timeLeft-=5;
     index++;
     askQuestion();
   }
@@ -200,7 +202,7 @@ C.addEventListener('click', function(){
     askQuestion()
   }
   else {
-    timeLeft--;
+    timeLeft-=5;
     index++;
     askQuestion();
   }
@@ -212,7 +214,7 @@ D.addEventListener('click', function(){
     askQuestion()
   }
   else {
-    timeLeft--;
+    timeLeft-=5;
     index++;
     askQuestion();
   }
@@ -224,7 +226,6 @@ let highScoreSection = document.getElementById('highScoreSection');
 let highScoresBtn = document.getElementById('highScoresBtn');
 let submittedScore = document.getElementById('highScoreInitials');
 let highscoresContainer =  document.getElementById('scoresList')
-let scoreSubmission = document.getElementById('scoreSubmission');
 let highScoreInitials = document.getElementById('highScoreInitials');
 let submitScoreBtn = document.getElementById('submitScoreBtn');
 let scores;

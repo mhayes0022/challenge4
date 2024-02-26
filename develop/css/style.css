@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   height: auto;
+  
   width: auto;
 }
 
@@ -27,9 +28,7 @@ header {
   border-color: darkgrey;
   border-width: 3px;
 }
-/* h1{
-  background-color: lightgray;
-} */
+
 
 /* Below are properties that are reused */
 .hide {
@@ -121,11 +120,11 @@ header {
   justify-content: center;
   margin-left: 170px;
 }
-/* @media screen and (max-width: 551px) {
+@media screen and (max-width: 700px) {
   #answerBtns {
     margin-left: 40px;
   }
-} */
+}
 
 #answerA,
 #answerB,
@@ -133,18 +132,77 @@ header {
 #answerD{
   text-align: center;
   padding:5px;
+  margin-top: 10px;
+  font-size: 15px;
   
 }
 
+#submitScoreBtn {
+  left: 40%;
+  top: 30%;
+  width: 300px;
+  height: 100px;
+  justify-content: center;
+  display: flex;
+  position: absolute;
+  p {
+    text-align: center;
+    font-size: 30px;
+    top: 0;
+  }
+  #highScoreInitials {
+    bottom: 0;
+    height: 17px;
+    width: 160px;
+    position: absolute;
+
+  }
+  button {
+    height: 22px;
+    width: 65px;
+    right: 0;
+    bottom: 0;
+    margin-left:5px;
+    position: absolute;
+  }
+}
+@media screen and (max-width: 800px) {
+  #submitScoreBtn {
+    margin-right: 40px;
+    left: 30%
+  }
+}
+@media screen and (max-width: 600px) {
+  #submitScoreBtn {
+    margin-right: 40px;
+    left: 10%
+  }
+}
+
+
+
 #scoreSubmission {
-  margin-top: 50px;
-  margin-left: 130px;
+  justify-content: center;
+  /* margin-left: 130px; */
+  background-color: aliceblue;
+  height: 737px;
+  width: 100%;
+}
+/* Below is Final Time! text */
+#playerTime{
+text-align: center;
+color: red;
+font-size: 40px;
+clear: right;
+text-shadow: 2px 2px 5px lightgrey;
 }
 
 #highScoreSection {
+  /* justify-content: center; */
   margin-top: 50px;
   margin-left: 50px;
   font-size: 25px;
+  
 }
 
 #scoresList {
