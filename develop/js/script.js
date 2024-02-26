@@ -14,9 +14,8 @@ const C = document.getElementById('answerC');
 const D = document.getElementById('answerD');
 let playerTime = document.getElementById('playerTime');
 let restartBtn = document.getElementById('restartBtn');
-let allRandomQuestions;
 let scoreSubmission = document.getElementById('scoreSubmission');
-
+let allRandomQuestions;
 
 
 
@@ -113,7 +112,7 @@ function countdown() {
       timerEl.textContent = ' Time Remaining:' + ' ' + timeLeft;
       --timeLeft;
     } else {
-      timerEl.textContent = 'GAME OVER';
+      timerEl.classList.add('hide');
       clearInterval(timeInterval);
       youDied();
 
@@ -134,7 +133,7 @@ startBtn.addEventListener('click', function(){
 });
 
 
-//Function below shuffles anything put into it.
+//Function below shuffles anything put into it
 function shuffleQuestions(array) {
   let currentIndex = array.length, randomIndex;
   while (currentIndex > 0) {
@@ -156,7 +155,6 @@ function askQuestion() {
     quizSection.classList.add('hide');
     quizSection.classList.remove('flex');
     scoreSubmission.classList.remove('hide');
-    //scoreSubmission.classList.add('flex');
     timerEl.classList.add('hide');
     clearInterval(timeInterval);
     playerTime.textContent = 'Final Time:' + ' ' + timeLeft + ' ' + 'seconds!';
@@ -169,6 +167,7 @@ function askQuestion() {
   document.getElementById('answerC').innerHTML = currentQuestion.C;
   document.getElementById('answerD').innerHTML = currentQuestion.D;
 };
+
 
 
 // These enable functionality for the answer buttons in the quiz
@@ -221,6 +220,7 @@ D.addEventListener('click', function(){
 });
 
 
+
 //Below is the high score section
 let highScoreSection = document.getElementById('highScoreSection');
 let highScoresBtn = document.getElementById('highScoresBtn');
@@ -228,6 +228,7 @@ let submittedScore = document.getElementById('highScoreInitials');
 let highscoresContainer =  document.getElementById('scoresList')
 let highScoreInitials = document.getElementById('highScoreInitials');
 let submitScoreBtn = document.getElementById('submitScoreBtn');
+let playAgain = document.getElementById('playAgain');
 let scores;
 let finalTime;
 
@@ -242,6 +243,7 @@ highScoresBtn.addEventListener('click', function(){
   timerEl.classList.add('hide');
   highScoreSection.classList.remove('hide');
   restartBtn.classList.remove('hide');
+  highScoreSection.classList.add('marginTop');
   clearInterval(timeInterval);
   moveScores();
 });
@@ -285,6 +287,7 @@ submitScoreBtn.addEventListener('submit', (event) => {
     localStorage.setItem('highScoreSection', JSON.stringify(saveHighScores));
     moveScores()
     highScoreSection.classList.remove('hide');
+    highScoreSection.classList.add('marginTop');
     scoreSubmission.classList.add('hide');
     menu.classList.add('hide');
     restartBtn.classList.remove('hide');
@@ -295,16 +298,16 @@ function youDied() {
   quizSection.classList.remove('flex');
   quizSection.classList.add('hide');
   highScoresBtn.classList.add('hide');
-  restartBtn.classList.remove('hide');
+  playAgain.classList.remove('hide');
   dead.classList.remove('hide');
 };
 
-
-
-
-//Still needs:
-//subtract more than 1 second off if incorrect answer
-//incorrect answers take time off your score time, but not the timer
+playAgain.addEventListener('click', function(){
+  menu.classList.remove('hide');
+  playAgain.classList.add('hide');
+  dead.classList.add('hide');
+  location.reload(); 
+});
 
 
 

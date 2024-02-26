@@ -1,32 +1,13 @@
 /* Below are the page defaults and startscreen */
-/* * {
-  background-color: aliceblue;
-} */
+* {
+  overflow:hidden; /* or auto */
+  }
+
 body {
-  /*font-family: sans-serif;*/
   margin: 0;
   padding: 0;
   height: auto;
-  
   width: auto;
-}
-
-.menu {
-  width: 100%;
-  height: 100%;
-  background-color: gray;
-}
-
-header {
-  background-color:lightgray;
-  text-align: center;
-  text-shadow: 3px 3px black;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 90px;
-  color: red;
-  border: solid;
-  border-color: darkgrey;
-  border-width: 3px;
 }
 
 
@@ -39,18 +20,42 @@ header {
   display: flex;
 }
 
-/* Below are the start button, restart button, and high score button */
+.marginTop {
+  margin-top: 100px;
+}
+
+
+/* Below is the opening menu */
+.menu {
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+}
+header {
+  text-align: center;
+  font-size: 90px;
+  text-shadow: 3px 3px black;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: red;
+  background-color:lightgray;
+  border: solid;
+  border-width: 3px;
+  border-color: darkgrey;
+}
+
+
+/* Below is the start button */
 #startBtn {
-   position: absolute;
-   font-size: 25px;
+    position: absolute;
     top: 30%;
     left: 50%;
     margin-top: 100px;
     margin-left: -80px;
+    font-size: 25px;
   }
   #startBtn:hover{
-    background-color:red;
     color: darkgray;
+    background-color:red;
   }
   @media screen and (max-width: 707px) {
   #startBtn {
@@ -58,64 +63,57 @@ header {
   }
 }
 
-#restartBtn{
-  position: absolute;
-  margin-top: 20px;
-  margin-left: 20px;
-  z-index: 2;
-}
+
+/* Below is the high score button */
 #highScoresBtn {
-  left: 0;
+  position: absolute;
   top: 0;
+  left: 0;
+  z-index: 1;
   margin-top: 10px;
   margin-left: 20px;
-  position: absolute;
-  /*display: block;*/
-  z-index: 1;
 }
-
 
 
 /* Below is the countdown timer */
 #countdown {
-  border: 2px solid; 
-  border-radius: 5px;
-  font-size: 20px;
-  outline-style: groove;
-  outline-color: lightgray;
-  font-weight: bold;
+  position: absolute;
   right: 0;
   margin-right: 10px;
   margin-top: 15px;
-  position: absolute;
   padding: 8px;
-  /*display: block;*/
   z-index: 1;
+  font-size: 20px;
+  font-weight: bold;
+  border: 2px solid; 
+  border-radius: 5px;
+  outline-style: groove;
+  outline-color: lightgray;
 }
 
 
-
+/* Below is the quiz section */
 #quizSection {
   background-color:aquamarine;
   height: 737px;
   width: 100%;
   justify-content: center;
 }
-
 #quiz {
   width: 75%;
 }
+
+/* Below are the quiz questions */
 #questions {
+  position: relative;
+  padding-top: 100px;
   font-family:'Times New Roman', 'Times', 'serif';
   font-size: 35px;
   text-align: center;
-  padding-top: 100px;
   color: blueviolet;
-  position: relative;
-  /* justify-content: center; */
-  /* padding-top: 50px; */
 }
 
+/* Below are the answer buttons */
 #answerBtns {
   justify-content: center;
   margin-left: 170px;
@@ -125,45 +123,60 @@ header {
     margin-left: 40px;
   }
 }
-
 #answerA,
 #answerB,
 #answerC,
 #answerD{
   text-align: center;
-  padding:5px;
   margin-top: 10px;
+  padding:5px;
   font-size: 15px;
-  
 }
 
-#submitScoreBtn {
-  left: 40%;
-  top: 30%;
-  width: 300px;
-  height: 100px;
+
+/* Below is the player's initials submission screen */
+#scoreSubmission {
   justify-content: center;
+  height: 737px;
+  width: 100%;
+  background-color: aliceblue;
+}
+/* Below is Final Time! text */
+#playerTime{
+  text-align: center;
+  clear: right;
+  font-size: 40px;
+  color: red;
+  text-shadow: 2px 2px 5px lightgrey;
+}
+
+/* Below is the submit score form and button */
+#submitScoreBtn {
   display: flex;
   position: absolute;
+  justify-content: center;
+  width: 300px;
+  height: 100px;
+  left: 40%;
+  top: 30%;
   p {
+    top: 0;
     text-align: center;
     font-size: 30px;
-    top: 0;
   }
   #highScoreInitials {
-    bottom: 0;
+    position: absolute;
     height: 17px;
     width: 160px;
-    position: absolute;
-
+    bottom: 0;
   }
   button {
+    position: absolute;
     height: 22px;
     width: 65px;
     right: 0;
     bottom: 0;
     margin-left:5px;
-    position: absolute;
   }
 }
 @media screen and (max-width: 800px) {
@@ -181,49 +194,70 @@ header {
 
 
 
-#scoreSubmission {
-  justify-content: center;
-  /* margin-left: 130px; */
-  background-color: aliceblue;
-  height: 737px;
-  width: 100%;
-}
-/* Below is Final Time! text */
-#playerTime{
-text-align: center;
-color: red;
-font-size: 40px;
-clear: right;
-text-shadow: 2px 2px 5px lightgrey;
-}
-
-#highScoreSection {
-  /* justify-content: center; */
-  margin-top: 50px;
-  margin-left: 50px;
+/* Below is the restart quiz button */
+#restartBtn{
+  position: absolute;
+  margin-top: 20px;
+  right: 44%;
+  bottom: 40%;
   font-size: 25px;
+  }
+  #restartBtn:hover {
+    outline-style: groove;
+    outline-color:red;
+  }
+@media screen and (max-width: 740px) {
+  #restartBtn {
+    right: 32%;
   
+  }
 }
 
+
+
+/* Below is the high score section */
+#highScoreSection {
+  display: flex;
+  justify-content: center;
+  /* margin-top: 100px; */
+  font-size: 25px;
+}
 #scoresList {
   margin: 7px;
 }
 
+
+
 /* Below is the display for if the timer runs out */
-#dead{
-  background-color: black;
-  height: 100vh;
-  width: 100vw;
-  background-size: cover;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-  top: 0;
-}
-#deadText{
+#deadText {
   margin: 0;
   padding-top: 310px;
-  color: red;
-  font-family: 'Cormorant Garamond';
   font-size: 100px;
+  font-family: 'Cormorant Garamond';
+  color: red;
+  text-align: center;
+  -webkit-animation: fadein 2s;
+    animation: fadein 2s;
+}
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+#playAgain {
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#dead{
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  width: 100%; 
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  background-color: black;
 }

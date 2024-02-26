@@ -23,7 +23,7 @@
 <!--Below is the countdown timer-->
     <div id = "countdown" class = "hide"></div>
 
-<!--Below is the quiz-->
+<!--Below is the quiz section-->
     <section id="quizSection" class="hide">
       <div id = "quiz" class ="">
         <h2 id="questions"></h2>
@@ -36,11 +36,11 @@
       </div>
     </section>
 
-<!--Below is the end game section and high score section-->
+<!--Below is the high score section-->
 <button id="highScoresBtn">High Scores</button>  
 
+<!--Below is the score submission form-->
 <section id="scoreSubmission" class="hide">
-  <!--below is where js puts Final Time! text-->
   <h2 id="playerTime"></h2>
   <form id="submitScoreBtn">
       <p> Your Initials:</p>
@@ -49,15 +49,21 @@
   </form>
 </section>
 
+<!--Below is the empty container for the high scores-->
   <div id="highScoreSection" class="hide">
     <ol id="scoresList">
       
     </ol>
   </div>
   
+  <!--Below is the restart quiz button-->
   <div>
     <button id="restartBtn" class="hide">Restart Quiz!</button>
   </div>
+  <div>
+    <button id="playAgain" class="hide">Try Again</button>
+  </div>
+  <!--Below is the game over screen-->
   <div id="dead" class="hide">
     <h1 id="deadText">YOU DIED</h1>
   </div>
