@@ -1,6 +1,9 @@
+/* Below are the page defaults and startscreen */
+/* * {
+  background-color: aliceblue;
+} */
 body {
   /*font-family: sans-serif;*/
-  background-color: #f9fbfd;
   margin: 0;
   padding: 0;
   height: auto;
@@ -9,34 +12,51 @@ body {
 
 .menu {
   width: 100%;
-  background-color: white;
+  height: 100%;
+  background-color: gray;
 }
 
 header {
+  background-color:lightgray;
   text-align: center;
-  color: red;
+  text-shadow: 3px 3px black;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 50px;
+  font-size: 90px;
+  color: red;
+  border: solid;
+  border-color: darkgrey;
+  border-width: 3px;
 }
+/* h1{
+  background-color: lightgray;
+} */
 
+/* Below are properties that are reused */
 .hide {
-    display: none;
+  display: none;
 }
 
+.flex {
+  display: flex;
+}
+
+/* Below are the start button, restart button, and high score button */
 #startBtn {
-   position: relative;
+   position: absolute;
+   font-size: 25px;
     top: 30%;
     left: 50%;
-    margin-top: -100px;
+    margin-top: 100px;
     margin-left: -80px;
-}
-
-#countdown {
-  border: solid; 
-  right: 0;
-  position: absolute;
-  /*display: block;*/
-  z-index: 1;
+  }
+  #startBtn:hover{
+    background-color:red;
+    color: darkgray;
+  }
+  @media screen and (max-width: 707px) {
+  #startBtn {
+    margin-top: 260px;
+  }
 }
 
 #restartBtn{
@@ -45,7 +65,93 @@ header {
   margin-left: 20px;
   z-index: 2;
 }
+#highScoresBtn {
+  left: 0;
+  top: 0;
+  margin-top: 10px;
+  margin-left: 20px;
+  position: absolute;
+  /*display: block;*/
+  z-index: 1;
+}
 
+
+
+/* Below is the countdown timer */
+#countdown {
+  border: 2px solid; 
+  border-radius: 5px;
+  font-size: 20px;
+  outline-style: groove;
+  outline-color: lightgray;
+  font-weight: bold;
+  right: 0;
+  margin-right: 10px;
+  margin-top: 15px;
+  position: absolute;
+  padding: 8px;
+  /*display: block;*/
+  z-index: 1;
+}
+
+
+
+#quizSection {
+  background-color:aquamarine;
+  height: 737px;
+  width: 100%;
+  justify-content: center;
+}
+
+#quiz {
+  width: 75%;
+}
+#questions {
+  font-family:'Times New Roman', 'Times', 'serif';
+  font-size: 35px;
+  text-align: center;
+  padding-top: 100px;
+  color: blueviolet;
+  position: relative;
+  /* justify-content: center; */
+  /* padding-top: 50px; */
+}
+
+#answerBtns {
+  justify-content: center;
+  margin-left: 170px;
+}
+/* @media screen and (max-width: 551px) {
+  #answerBtns {
+    margin-left: 40px;
+  }
+} */
+
+#answerA,
+#answerB,
+#answerC,
+#answerD{
+  text-align: center;
+  padding:5px;
+  
+}
+
+#scoreSubmission {
+  margin-top: 50px;
+  margin-left: 130px;
+}
+
+#highScoreSection {
+  margin-top: 50px;
+  margin-left: 50px;
+  font-size: 25px;
+}
+
+#scoresList {
+  margin: 7px;
+}
+
+/* Below is the display for if the timer runs out */
 #dead{
   background-color: black;
   height: 100vh;
@@ -63,66 +169,3 @@ header {
   font-family: 'Cormorant Garamond';
   font-size: 100px;
 }
-
-
-.flex {
-  display: flex;
-}
-
-
-#quizSection {
-  background-color:aquamarine;
-  height: 680px;
-  width: 100%;
- 
-  justify-content: center;
-  /* justify-content: center; */
-}
-
-#questions {
-  font-family:'Times New Roman', 'Times', 'serif';
-  text-align: center;
-  padding-top: 100px;
-  color: blueviolet;
-  position: relative;
-  /* justify-content: center; */
-  /* padding-top: 50px; */
-}
-
-#answerBtns {
-  justify-content: center;
-  position: absolute;
-  /* margin-right: 50px; This didn't NOT work*/
-}
-
-#answerA,
-#answerB,
-#answerC,
-#answerD{
-  text-align: center;
-  padding:5px;
-  position: relative;
-  
-  /* justify-content: center; */
-  /* margin-top: 100px;
-  position: relative; */
-  
-}
-
-#highScoresBtn {
-  left: 0;
-  top: 0;
-  margin-top: 10px;
-  margin-left: 10px;
-  position: absolute;
-  /*display: block;*/
-  z-index: 1;
-}
-
-#scoreSubmission {
-  justify-content: center;
-}
-
-
-/* Going to need a media query to adjust margins at smaller screen size */
-/* Or am I? */

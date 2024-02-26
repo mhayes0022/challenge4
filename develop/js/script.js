@@ -1,5 +1,5 @@
 let timerEl = document.getElementById('countdown');
-let timeLeft = 3;
+let timeLeft = 60;
 let timeInterval;
 let startBtn = document.getElementById('startBtn');
 let menu = document.getElementById('menu');
@@ -30,7 +30,7 @@ const quizQuestions = [
     correct: 'The &lt;body&gt; element',
   },
   {
-    question: 'What is a promise?',
+    question: '              What is a promise?              ',
     A: 'An object with an else method',
     B: 'An object with a then method',
     C: 'A method with a then object',
@@ -230,8 +230,7 @@ let submitScoreBtn = document.getElementById('submitScoreBtn');
 let scores;
 let finalTime;
 
-//highScoresBtn.addEventListener('click', );
-//highScoresBtn.addEventListener('click', ev => { ev.currentTarget.textContent}, { once: true });
+
 //Below enables 'high score' button functionality
 highScoresBtn.addEventListener('click', function(){
   document.getElementById("highScoresBtn").disabled = true;
@@ -245,7 +244,6 @@ highScoresBtn.addEventListener('click', function(){
   clearInterval(timeInterval);
   moveScores();
 });
-
 
 
 //Below is the restart quiz button
@@ -263,7 +261,7 @@ let saveHighScores = JSON.parse(localStorage.getItem("highScoreSection")) || [];
 const moveScores = () => {
   saveHighScores.forEach((item) => {
     const initials = document.createElement("li");
-    initials.innerHTML = item.initials + '- ' + item.score;
+    initials.innerHTML = item.initials + ': ' + item.score;
     highscoresContainer.appendChild(initials);
     
   });
@@ -289,16 +287,16 @@ submitScoreBtn.addEventListener('submit', (event) => {
     scoreSubmission.classList.add('hide');
     menu.classList.add('hide');
     restartBtn.classList.remove('hide');
-  });
+});
 
-  function youDied() {
-    quizSection.classList.remove('flex');
-    quizSection.classList.add('hide');
-    highScoresBtn.classList.add('hide');
-    restartBtn.classList.remove('hide');
-    dead.classList.remove('hide');
-
-  };
+//Below handles if timer runs out
+function youDied() {
+  quizSection.classList.remove('flex');
+  quizSection.classList.add('hide');
+  highScoresBtn.classList.add('hide');
+  restartBtn.classList.remove('hide');
+  dead.classList.remove('hide');
+};
 
 
 
@@ -306,10 +304,6 @@ submitScoreBtn.addEventListener('submit', (event) => {
 //Still needs:
 //subtract more than 1 second off if incorrect answer
 //incorrect answers take time off your score time, but not the timer
-//set timer to 60 seconds to start
-//style score submission and high scores sections
-//get quiz to not move based on question length
-//above. It's set to justify center, but counts the beginning
-//of the question as the center.
+
 
 
