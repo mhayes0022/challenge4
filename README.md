@@ -14,6 +14,12 @@ If the timer is allowed to run to zero, the screen will turn to black and the wo
 ## Website Link
 
 ## Website Screenshot
+![Coding Quiz main](https://github.com/mhayes0022/challenge4/assets/153241703/5aefe8c8-23c1-4da0-bd11-0bb40d08fc66)
+
+![Coding Quiz quiz](https://github.com/mhayes0022/challenge4/assets/153241703/99a640ec-0bbc-4262-942b-167a8b572827)
+
+![Coding Quiz final](https://github.com/mhayes0022/challenge4/assets/153241703/7dcadd82-4724-4ed7-9c29-9129082aecb3)
+
 
 ## Credits
 All of the code was written by me. However, a tutor through the University of Minnesota provided some very helpful guidance, and a friend helped me figure out how to get the questions to shuffle properly. 
