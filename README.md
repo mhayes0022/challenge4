@@ -20,6 +20,7 @@ If the timer is allowed to run to zero, the screen will turn to black and the wo
 
 ![Coding Quiz final](https://github.com/mhayes0022/challenge4/assets/153241703/7dcadd82-4724-4ed7-9c29-9129082aecb3)
 
+![Coding Quiz high scores](https://github.com/mhayes0022/challenge4/assets/153241703/111b8de9-2acd-4990-8cb3-8b6d025c05e6)
 
 ## Credits
 All of the code was written by me. However, a tutor through the University of Minnesota provided some very helpful guidance and helped substantially with the submitScoreBtn event listener in JavaScript, and to clean up the displayScores function. Additionally, a friend helped me figure out how to get the questions to shuffle properly. 
