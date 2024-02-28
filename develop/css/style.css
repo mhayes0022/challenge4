@@ -1,6 +1,6 @@
-/* Below are the page defaults and startscreen */
+/* Below are the page defaults*/
 * {
-  overflow:hidden; /* or auto */
+  overflow:hidden;
   }
 
 body {
@@ -20,8 +20,8 @@ body {
   display: flex;
 }
 
-.marginTop {
-  margin-top: 100px;
+.paddingTop {
+  padding-top: 100px;
 }
 
 
@@ -47,9 +47,8 @@ header {
 /* Below is the start button */
 #startBtn {
     position: absolute;
-    top: 30%;
+    top: 55%;
     left: 50%;
-    margin-top: 100px;
     margin-left: -80px;
     font-size: 25px;
   }
@@ -99,6 +98,11 @@ header {
   width: 100%;
   justify-content: center;
 }
+@media screen and (max-height: 1354px) {
+  #quizSection {
+    height: 1354px;
+  }
+}
 #quiz {
   width: 75%;
 }
@@ -106,9 +110,10 @@ header {
 /* Below are the quiz questions */
 #questions {
   position: relative;
+  justify-content: center;
   padding-top: 100px;
   font-family:'Times New Roman', 'Times', 'serif';
-  font-size: 35px;
+  font-size: 40px;
   text-align: center;
   color: blueviolet;
 }
@@ -128,7 +133,7 @@ header {
 #answerC,
 #answerD{
   text-align: center;
-  margin-top: 10px;
+  margin: 10px;
   padding:5px;
   font-size: 15px;
 }
@@ -140,6 +145,11 @@ header {
   height: 737px;
   width: 100%;
   background-color: aliceblue;
+}
+@media screen and (max-height: 1354px) {
+  #scoreSubmission {
+    height: 1354px;
+  }
 }
 /* Below is Final Time! text */
 #playerTime{
@@ -201,10 +211,13 @@ header {
   right: 44%;
   bottom: 40%;
   font-size: 25px;
+  border: 2px solid;
+  border-radius: 12px;
   }
   #restartBtn:hover {
     outline-style: groove;
-    outline-color:red;
+    outline-color: lightsalmon;
+    background-color:lightgray;
   }
 @media screen and (max-width: 740px) {
   #restartBtn {
@@ -217,18 +230,51 @@ header {
 
 /* Below is the high score section */
 #highScoreSection {
-  display: flex;
+  background-color:antiquewhite;
+  height: 737px;
+  width: 100%;
   justify-content: center;
-  /* margin-top: 100px; */
   font-size: 25px;
+  font-weight: bold;
 }
+@media screen and (max-height: 1354px) {
+  #highScoreSection {
+    height: 1354px;
+  }
+}
+/* These are the individual entries */
 #scoresList {
-  margin: 7px;
+  height: 120px;
+  margin: 10px;
+  padding: 15px;
+  border: solid;
+  border-color:grey;
+  outline-style: solid;
+  outline-color: whitesmoke;
+  outline-width: 5px;
+}
+@media screen and (min-width: 1354px) {
+  #scoresList {
+    height: 200px;
+    padding: 20px;
+    font-size: 35px;
+  }
 }
 
 
+/* Below is the display that handles if the timer runs out*/
+#dead{
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  width: 100%; 
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  background-color: black;
+}
 
-/* Below is the display for if the timer runs out */
 #deadText {
   margin: 0;
   padding-top: 310px;
@@ -244,20 +290,12 @@ header {
   to   { opacity: 1; }
 }
 
+/*This is the restart button specific to the 'you died' screen*/
 #playAgain {
   position: absolute;
   margin-top: 10px;
   margin-left: 10px;
 }
-
-#dead{
-  height: 100vh;
-  width: 100vw;
-  top: 0;
-  width: 100%; 
-  background-size: cover;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-  background-color: black;
+#playAgain:hover{
+  background-color:darkgray;
 }

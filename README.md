@@ -7,7 +7,7 @@ The main screen of the page reads "Coding Quiz" and has a button beneath it that
 
 At the top right corner of the quiz section is a timer which begins counting down from 60 seconds after you click the "Start Quiz!" button. The quiz section contains ten questions, which it will display one at a time. It randomly shuffles the questions, so each playthrough of the game will result in a different question order. Below each question are four buttons, each with a possible answer to the question posed. When you choose an answer, the application displays the next question. If you chose the wrong answer, it will subtract five seconds off of the time remaining. If you chose correctly, you're given the next question and the timer continues to count down at one second increments as before.
 
-When all the questions have been asked and answers have been submitted for each, you are taken to a display which reads "Final Time:" and will tell you how many seconds you had left on the 60 second countdown timer when you finished the quiz. Below that is a submission bar and button, where it prompts you to enter your initials. When you do so, you are taken to another screen which shows the top five scores. The scores are stored in local data. Below the high scores display is a "Restart Quiz!" button, which will take you back to main screen and allow you to replay the quiz.
+When all the questions have been asked and answers have been submitted for each, you are taken to a display which reads "Final Time:" and will tell you how many seconds you had left on the 60 second countdown timer when you finished the quiz. Below that is a submission bar and button, where it prompts you to enter your initials. When you do so, you are taken to another screen which shows the top five scores in order. The scores are stored in local data. Below the high scores display is a "Restart Quiz!" button, which will take you back to main screen and allow you to replay the quiz.
 
 If the timer is allowed to run to zero, the screen will turn to black and the words "YOU DIED" will fade in. In the top right hand corner is a small "restart quiz" button. 
 
@@ -22,7 +22,7 @@ If the timer is allowed to run to zero, the screen will turn to black and the wo
 
 
 ## Credits
-All of the code was written by me. However, a tutor through the University of Minnesota provided some very helpful guidance, and a friend helped me figure out how to get the questions to shuffle properly. 
+All of the code was written by me. However, a tutor through the University of Minnesota provided some very helpful guidance and helped substantially with the submitScoreBtn event listener in JavaScript, and to clean up the displayScores function. Additionally, a friend helped me figure out how to get the questions to shuffle properly. 
 
 ## License 
 
